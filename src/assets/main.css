@@ -1,6 +1,6 @@
 :root {
     --dark-green: #408F4E;
-    --light-green: #58DB6E;
+    --light-green: #57db6d;
     --dark-blue: #24718F;
     --light-blue: #42B0DB;
     --red-orange: #DB6E4C;
@@ -9,5 +9,6 @@
 }
 
 body {
-    background-color: var(--black);
+    background-color: var(--white);
+    margin: 0;
 }
