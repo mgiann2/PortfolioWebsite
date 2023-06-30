@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import SpeedInContainer from './components/SpeedInContainer.vue';
+import Navbar from './components/Navbar.vue';
 </script>
 
 <template>
-    
+    <Navbar />
 </template>
 
 <style scoped>

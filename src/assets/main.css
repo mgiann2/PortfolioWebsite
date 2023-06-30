@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+
 :root {
     --dark-green: #408F4E;
     --light-green: #57db6d;
@@ -9,6 +11,8 @@
 }
 
 body {
-    background-color: var(--white);
+    font-family: 'Inter', sans-serif;
+    background-color: var(--black);
     margin: 0;
+    color: var(--white);
 }

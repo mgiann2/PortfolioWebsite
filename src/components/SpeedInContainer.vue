@@ -25,23 +25,23 @@ watch(isVisible, async (newIsVisible) => {
 
     @keyframes speed-in {
         0% {
-            transform: translateX(-100vw) skew(30deg);
+            transform: translateX(-100vw) skewX(30deg);
         }
 
         70% {
-            transform: translateX(-8vw) skew(30deg);
+            transform: translateX(0) skewX(10deg);
         }
 
         80% {
-            transform: skew(-20deg);
+            transform: skewX(-30deg);
         }
 
         90% {
-            transform: skew(10deg);
+            transform: skewX(10deg);
         }
 
         100% {
-            transform: skew(0deg);
+            transform: skewX(0deg);
         }
     }
 </style>
