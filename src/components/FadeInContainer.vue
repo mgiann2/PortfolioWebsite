@@ -14,34 +14,24 @@ watch(isVisible, async (newIsVisible) => {
 </script>
 
 <template>
-    <div v-if="wasSeen" ref="target" class="speed-in"><slot /></div>
+    <div v-if="wasSeen" ref="target" class="fade-in"><slot /></div>
     <div v-else ref="target"><slot /></div>
 </template>
 
 <style scoped>
-    .speed-in {
-        animation: speed-in 0.8s ease-in-out 0s ;
+    .fade-in {
+        opacity: 0;
+        animation: speed-in 1s ease-in-out 0.5s forwards;
     }
 
     @keyframes speed-in {
         0% {
-            transform: translateX(-100vw) skewX(30deg);
-        }
-
-        70% {
-            transform: translateX(0) skewX(10deg);
-        }
-
-        80% {
-            transform: skewX(-30deg);
-        }
-
-        90% {
-            transform: skewX(10deg);
+            opacity: 0;
+            transform: translateY(1rem);
         }
 
         100% {
-            transform: skewX(0deg);
+            opacity: 1;
         }
     }
 </style>

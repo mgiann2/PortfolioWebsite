@@ -156,6 +156,7 @@ import SpeedInContainer from './SpeedInContainer.vue';
 
 <style scoped>
     .navbar {
+        height: 3.8rem;
         position: sticky;
         top: 0;
         display: flex;
@@ -163,6 +164,7 @@ import SpeedInContainer from './SpeedInContainer.vue';
         justify-content: space-between;
         padding: 1rem;
         background-color: var(--black);
+        z-index: 10;
     }
 
     .nav-left {
