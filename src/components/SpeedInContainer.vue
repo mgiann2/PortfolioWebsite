@@ -15,12 +15,13 @@ watch(isVisible, async (newIsVisible) => {
 
 <template>
     <div v-if="wasSeen" ref="target" class="speed-in"><slot /></div>
-    <div v-else ref="target"><slot /></div>
+    <div style="opacity: 0;" v-else ref="target"><slot /></div>
 </template>
 
 <style scoped>
     .speed-in {
-        animation: speed-in 0.8s ease-in-out 0s ;
+        transform: translate(0);
+        animation: speed-in 0.8s ease-in-out 0s forwards;
     }
 
     @keyframes speed-in {

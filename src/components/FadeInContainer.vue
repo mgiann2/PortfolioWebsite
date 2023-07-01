@@ -19,6 +19,10 @@ watch(isVisible, async (newIsVisible) => {
 </template>
 
 <style scoped>
+    div {
+        opacity: 0;
+    }
+
     .fade-in {
         opacity: 0;
         animation: speed-in 1s ease-in-out 0.5s forwards;
