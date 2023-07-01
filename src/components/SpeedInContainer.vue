@@ -2,6 +2,11 @@
 import { ref, watch } from 'vue';
 import { useElementVisibility } from '@vueuse/core';
 
+defineProps<{
+    delay?: string
+    duration?: string
+}>();
+
 const target = ref(null);
 const isVisible = useElementVisibility(target);
 const wasSeen = ref(false);
@@ -14,13 +19,13 @@ watch(isVisible, async (newIsVisible) => {
 </script>
 
 <template>
-    <div v-if="wasSeen" ref="target" class="speed-in"><slot /></div>
+    <div v-if="wasSeen" ref="target" :style="{animationDelay: delay, animationDuration: duration}" class="speed-in"><slot /></div>
     <div style="opacity: 0;" v-else ref="target"><slot /></div>
 </template>
 
 <style scoped>
     .speed-in {
-        transform: translate(0);
+        transform: translate(-100vw);
         animation: speed-in 0.8s ease-in-out 0s forwards;
     }
 

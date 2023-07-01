@@ -2,13 +2,13 @@
 import FadeInContainer from './FadeInContainer.vue';
 
 const techSkills = ["Java", "Python", "C", "C++", "C#", "Javascript", "HTML", "CSS", "Postgresql", "R",
-                    "Django", "NodeJs", "ReactJs", "Vue", "JQuery", "Git", "Unix", ""];
+                    "Django", "NodeJs", "ReactJs", "Vue", "JQuery", "Git", "Unix"];
 const softSkills = ["Problem-Solving", "Organization", "Time Management", "Communication"];
 </script>
 
 <template>
     <div class="skill-container">
-        <FadeInContainer>
+        <FadeInContainer delay="0s">
             <h1>Skills</h1>
             <div class="skill-grid">
                 <div class="skill-col">
