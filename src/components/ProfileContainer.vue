@@ -6,7 +6,6 @@ import FadeInContainer from './FadeInContainer.vue';
     <FadeInContainer>
         <div class="profile-container">
             <div class="picture-div">
-                
             </div>
             <div class="content-div">
                 <h1>Matteo Giannone</h1>
