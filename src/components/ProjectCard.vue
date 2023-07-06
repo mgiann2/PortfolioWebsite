@@ -1,29 +1,29 @@
 <script setup lang="ts">
-    // defineProps<{
-    //     img: string
-    //     name: string
-    //     description: string
-    //     skills: string[]
-    // }>();
+import { type Project } from '../helper';
+
+    defineProps<{
+        project: Project
+    }>();
 </script>
 
 <template>
     <div class="main-card">
-        <div class="picture-div">
-            <img src="" alt="">
+        <div class="picture-div box-shadow">
+            <img :src="project.img" alt="Image of a project">
         </div>
         <div class="content-div">
-            <div style="height: 14rem;">
-                <h3>Name</h3>
+            <div style="height: 13rem; display: flex; flex-direction: column;">
+                <h3>{{ project.name }}</h3>
                 <p class="description">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veniam quod ad, veritatis doloremque, repudiandae accusamus perspiciatis perferendis explicabo, fugiat ullam sit maiores nihil! Modi ut autem, accusantium molestiae possimus atque?
+                    {{ project.description }}
                 </p>
-                <p class="skills">
-                    <span class="skill-span">React</span>
-                    <span class="skill-span">Javascript</span>
-                </p>
+                <div style="height: 100%; position: relative;">
+                    <div class="skills">
+                        <span v-for="skill in project.skills" class="skill-span">{{ skill }}</span>
+                    </div>
+                </div>
             </div>
-            <a class="card-btn" href="#">See Project</a>
+            <a class="card-btn" :href="project.link">See Project</a>
         </div>
     </div>
 </template>
@@ -35,12 +35,19 @@
         display: flex;
         flex-direction: column;
         width: 18rem;
-        box-shadow: 0px 0px 5px 1px rgba(100, 100, 100, 0.5);
+        border: solid 2px #000000;
+        border-radius: 1rem;
+        transition: all 0.3s;
+    }
+
+    .main-card:hover {
+        transform: translateY(-0.3rem);
+        border-color: var(--light-green);
     }
 
     .picture-div {
+        position: relative;
         height: 8rem;
-        background-color: var(--light-green);
     }
 
     .content-div {
@@ -66,13 +73,17 @@
         color: var(--black);
     }
 
-    .skill-span {
-        margin-right: 1rem;
-        color: var(--red-orange);
+    .skills {
+        position: absolute;
+        bottom: 0;
+        height: max-content;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: left;
+        gap: 0.3rem 0.5rem;
     }
-
-    p {
-        font-size: smaller;
+    .skill-span {
+        color: var(--red-orange);
     }
 
     h3 { 
@@ -80,9 +91,31 @@
         margin: 0;
     }
 
-    img {
-        width: 100%;
+    .box-shadow {
+        position: relative;
+        text-align: center;
+    }
+
+    .box-shadow::after {
+        border-top-left-radius: 0.85rem;
+        border-top-right-radius: 0.85rem;
+        box-shadow: inset 0 0 6px #000000;
+        bottom: 0;
+        content: "";
+        display: block;
+        left: 0;
         height: 100%;
-        object-fit: fill;
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 100%;
+    }
+
+    .box-shadow img {
+        border-top-left-radius: 0.85rem;
+        border-top-right-radius: 0.85rem;
+        max-width: 100%;
+        width: auto;
+        height: 100%;
     }
 </style>

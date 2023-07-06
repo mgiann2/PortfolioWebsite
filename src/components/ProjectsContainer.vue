@@ -2,13 +2,17 @@
 import ThemeDiv from './ThemeDiv.vue';
 import FadeInContainer from './FadeInContainer.vue';
 import ProjectCard from './ProjectCard.vue';
+import { type Project } from '../helper';
+import anovaImg from '../assets/anova-website.png';
 
-interface Project {
-    name: string;
-    description: string;
-    skillsUsed: string[];
-    image: string;
-}
+const projects: Project[] = [{
+    name: "Anova Test Website",
+    description: "A website to perform one-way and two-way anova tests. Built with react and hosted with Netlify.",
+    skills: ["React", "Javascript", "HTML", "CSS", "Netlify", "Statistics"],
+    link: "https://anovatest.netlify.app/",
+    img: anovaImg
+}]
+
 </script>
 
 <template>
@@ -18,12 +22,7 @@ interface Project {
                 <h1 style="margin: 0;">Projects</h1>
             </div>
             <div class="project-grid">
-                <ProjectCard />
-                <ProjectCard />
-                <ProjectCard />
-                <ProjectCard />
-                <ProjectCard />
-                <ProjectCard />
+                <ProjectCard v-for="project in projects" :project="project"/>
             </div>
         </FadeInContainer>
     </ThemeDiv>
@@ -40,7 +39,7 @@ interface Project {
         flex-wrap: wrap;
         gap: 1em;
         align-items: left;
-        justify-content: space-around;
+        justify-content: left;
     }
 
     h1 {
