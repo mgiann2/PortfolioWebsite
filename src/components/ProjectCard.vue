@@ -23,7 +23,7 @@ import { type Project } from '../helper';
                     </div>
                 </div>
             </div>
-            <a class="card-btn" :href="project.link">See Project</a>
+            <a class="card-btn" target="_blank" :href="project.link">See Project</a>
         </div>
     </div>
 </template>
