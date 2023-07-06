@@ -1,9 +1,32 @@
 <script setup lang="ts">
+import { ref, onMounted, onUnmounted } from 'vue';
 import SpeedInContainer from './SpeedInContainer.vue';
+
+const hideNav = ref(false);
+const startY = ref();
+
+function handleScroll() {
+    let scrollY = window.scrollY;
+    if (scrollY > startY.value) {
+        hideNav.value = true;
+    } else {
+        hideNav.value = false;
+    }
+    startY.value = scrollY;
+}
+
+onMounted(() => {
+    window.addEventListener('scroll', handleScroll)
+});
+
+onUnmounted(() => {
+    window.addEventListener('scroll', handleScroll)
+});
+
 </script>
 
 <template>
-    <div class="navbar">
+    <div class="navbar" :class="{hidden: hideNav}">
         <div class="nav-left">
             <SpeedInContainer>
                 <svg width="80" height="55"
@@ -165,6 +188,11 @@ import SpeedInContainer from './SpeedInContainer.vue';
         padding: 1rem;
         background-color: var(--black);
         z-index: 10;
+        transition: transform 0.5s;
+    }
+
+    .hidden {
+        transform: translateY(-7rem);
     }
 
     .nav-left {
