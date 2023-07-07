@@ -42,10 +42,10 @@ import FadeInContainer from './FadeInContainer.vue';
         position: absolute;
         bottom: 0;
         right: 0;
-        width: 30%;
+        width: 80px;
         height: 50px;
-        border-bottom: solid 10px var(--light-green);
-        border-right: solid 10px var(--light-green);
+        border-bottom: solid 15px var(--light-green);
+        border-right: solid 15px var(--light-green);
     }
 
     h1 {
