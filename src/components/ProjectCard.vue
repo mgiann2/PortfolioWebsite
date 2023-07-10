@@ -31,13 +31,13 @@ import { type Project } from '../helper';
 <style scoped>
     .main-card {
         position: relative;
-        background-color: var(--black);
+        background-color: #242424;
         display: flex;
         flex-direction: column;
         width: 18rem;
-        border: solid 2px #000000;
         border-radius: 1rem;
         transition: all 0.3s;
+        border: solid 2px var(--black);
     }
 
     .main-card:hover {
