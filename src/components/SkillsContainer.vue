@@ -33,9 +33,15 @@ const skills = ["Java", "Python", "C", "C++", "C#", "Javascript", "HTML", "CSS",
 
     .skill-span {
         width: 10rem;
+        height: 2rem;
         margin: 0.3rem 0;
         text-align: center;
-        font-size: large;
+        font-size: 1.1rem;
+        transition: all 0.1s ease-in-out;
+    }
+
+    .skill-span:hover {
+        font-size: 1.3rem;
     }
 
     h1 {
