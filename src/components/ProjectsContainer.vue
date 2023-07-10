@@ -26,7 +26,7 @@ const projects: Project[] = [{
     <ThemeDiv >
         <FadeInContainer>
             <div class="project-container">
-                <h1 style="margin: 0;">Projects</h1>
+                <h1>Projects</h1>
             </div>
             <div class="project-grid">
                 <ProjectCard v-for="project in projects" :project="project"/>
@@ -52,5 +52,6 @@ const projects: Project[] = [{
     h1 {
         font-size: 3rem;
         font-weight: 200;
+        text-align: center;
     }
 </style>
