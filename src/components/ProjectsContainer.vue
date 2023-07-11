@@ -46,7 +46,7 @@ const projects: Project[] = [{
         flex-wrap: wrap;
         gap: 1em;
         align-items: left;
-        justify-content: left;
+        justify-content: center;
     }
 
     h1 {
