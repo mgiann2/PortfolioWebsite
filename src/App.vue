@@ -7,13 +7,23 @@ import ContactContainer from './components/ContactContainer.vue';
 </script>
 
 <template>
-    <Navbar />
+    <Navbar>
+        <a class="nav-link" href="#">About</a>
+        <a class="nav-link" href="#skills">Skills</a>
+        <a class="nav-link" href="#projects">Projects</a>
+        <a class="nav-link" href="#get-in-touch">Get In Touch</a>
+    </Navbar>
     <ProfileContainer />
-    <SkillsContainer />
-    <ProjectsContainer />
-    <ContactContainer />
+    <SkillsContainer id="skills"/>
+    <ProjectsContainer id="projects"/>
+    <ContactContainer id="get-in-touch"/>
 </template>
 
 <style scoped>
-    
+    .nav-link {
+        display: inline-block;
+        padding: 1em;
+        text-decoration: none;
+        color: var(--red-orange);
+    }
 </style>

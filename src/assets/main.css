@@ -10,6 +10,10 @@
     --white: #F0F0F0;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     font-family: 'Inter', sans-serif;
     background-color: var(--black);

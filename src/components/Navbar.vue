@@ -171,6 +171,7 @@ onUnmounted(() => {
         </div>
         <div class="nav-right">
             <SpeedInContainer>
+                <slot />
                 <a class="nav-btn" href="#">RESUME</a>
             </SpeedInContainer>
         </div>
@@ -210,8 +211,16 @@ onUnmounted(() => {
         justify-content: right;
     }
 
+    .nav-link {
+        display: inline-block;
+        padding: 1em;
+        text-decoration: none;
+        color: var(--red-orange);
+    }
+
     .nav-btn {
         display: inline-block;
+        margin-left: 2rem;
         padding: 1em;
         border-radius: 1em;
         border: solid var(--light-green) 2px;
