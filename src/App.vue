@@ -25,5 +25,12 @@ import ContactContainer from './components/ContactContainer.vue';
         padding: 1em;
         text-decoration: none;
         color: var(--red-orange);
+        border: 2px solid var(--black);
+        transition: all 0.2s;
+    }
+
+    .nav-link:hover {
+        color: rgb(190, 96, 68);
+        border-bottom-color: var(--red-orange);
     }
 </style>
