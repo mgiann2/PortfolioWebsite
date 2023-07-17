@@ -22,6 +22,7 @@ import ContactContainer from './components/ContactContainer.vue';
 <style scoped>
     .nav-link {
         display: inline-block;
+        text-align: center;
         padding: 1em;
         text-decoration: none;
         color: var(--red-orange);

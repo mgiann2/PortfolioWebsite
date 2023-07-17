@@ -2,8 +2,17 @@
 import { ref, onMounted, onUnmounted } from 'vue';
 import SpeedInContainer from './SpeedInContainer.vue';
 
+const screenSizeBreakpoint = 700;
+
 const hideNav = ref(false);
 const startY = ref();
+const isSmallScreen = ref(false);
+const hideSidebar = ref(true);
+
+function toggleSidebar() {
+    hideSidebar.value = !hideSidebar.value;
+    console.log(hideSidebar.value);
+}
 
 function handleScroll() {
     let scrollY = window.scrollY;
@@ -15,18 +24,25 @@ function handleScroll() {
     startY.value = scrollY;
 }
 
+function handleResize() {
+    isSmallScreen.value = window.innerWidth < screenSizeBreakpoint;
+}
+
 onMounted(() => {
-    window.addEventListener('scroll', handleScroll)
+    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('resize', handleResize);
+    handleResize();
 });
 
 onUnmounted(() => {
-    window.addEventListener('scroll', handleScroll)
+    window.removeEventListener('scroll', handleScroll);
+    window.removeEventListener('resize', handleResize);
 });
 
 </script>
 
 <template>
-    <div class="navbar" :class="{hidden: hideNav}">
+    <div class="navbar" :class="{'nav-hidden': hideNav}">
         <div class="nav-left">
             <SpeedInContainer>
                 <svg width="80" height="55"
@@ -170,11 +186,29 @@ onUnmounted(() => {
 
         </div>
         <div class="nav-right">
-            <SpeedInContainer>
+            <SpeedInContainer v-if="!isSmallScreen">
                 <slot />
                 <a class="nav-btn" href="#">RESUME</a>
             </SpeedInContainer>
+            <SpeedInContainer v-else>
+                <div style="display: flex; justify-content: right; align-items: center;">
+                    <a class="nav-btn" href="#">RESUME</a>
+                    <div class="menu-btn" @click="toggleSidebar">
+                        <div class="menu-bar"></div>
+                        <div class="menu-bar"></div>
+                        <div class="menu-bar"></div>
+                    </div>
+                </div>
+            </SpeedInContainer>
         </div>
+    </div>
+    <div v-if="isSmallScreen" class="sidebar" :class="{'sidebar-hidden': hideSidebar}">
+        <div class="close-btn" @click="toggleSidebar">
+            <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" fill="currentColor" class="bi bi-x" viewBox="0 0 16 16">
+                <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
+            </svg>
+        </div>
+        <slot />
     </div>
 </template>
 
@@ -192,8 +226,26 @@ onUnmounted(() => {
         transition: transform 0.5s;
     }
 
-    .hidden {
+    .nav-hidden {
         transform: translateY(-7rem);
+    }
+
+    .sidebar {
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: var(--black);
+        z-index: 90;
+        display: flex;
+        flex-direction: column;
+        padding-top: 5rem;
+        transition: all 0.5s ease-in-out;
+    }
+
+    .sidebar-hidden {
+        transform: translate(800px);
     }
 
     .nav-left {
@@ -236,5 +288,25 @@ onUnmounted(() => {
 
     .nav-btn:active {
         transform: scale(0.9);
+    }
+
+    .menu-btn {
+        margin-left: 1rem;
+        display: inline-block;
+        cursor: pointer;
+    }
+
+    .menu-bar {
+        width: 40px;
+        height: 6px;
+        background-color: var(--light-green);
+        margin: 8px 0;
+    }
+
+    .close-btn {
+        position: absolute;
+        top: 0.9rem;
+        right: 0.3rem;
+        color: var(--light-green);
     }
 </style>
