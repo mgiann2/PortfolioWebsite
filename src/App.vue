@@ -7,11 +7,11 @@ import ContactContainer from './components/ContactContainer.vue';
 </script>
 
 <template>
-    <Navbar>
-        <a class="nav-link" href="#">About</a>
-        <a class="nav-link" href="#skills">Skills</a>
-        <a class="nav-link" href="#projects">Projects</a>
-        <a class="nav-link" href="#get-in-touch">Get In Touch</a>
+    <Navbar v-slot="slotProps">
+        <a @click="slotProps.click" class="nav-link" href="#">About</a>
+        <a @click="slotProps.click" class="nav-link" href="#skills">Skills</a>
+        <a @click="slotProps.click" class="nav-link" href="#projects">Projects</a>
+        <a @click="slotProps.click" class="nav-link" href="#get-in-touch">Get In Touch</a>
     </Navbar>
     <ProfileContainer />
     <SkillsContainer id="skills"/>
