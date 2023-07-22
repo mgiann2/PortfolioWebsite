@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { ref, onMounted, onUnmounted } from 'vue';
 import SpeedInContainer from './SpeedInContainer.vue';
+import resume from '../assets/resume.pdf'
 
 const screenSizeBreakpoint = 700;
 
@@ -187,7 +188,7 @@ onUnmounted(() => {
         <div class="nav-right">
             <SpeedInContainer v-if="!isSmallScreen">
                 <slot />
-                <a class="nav-btn" href="#">RESUME</a>
+                <a class="nav-btn" target="_blank" :href="resume">RESUME</a>
             </SpeedInContainer>
             <SpeedInContainer v-else>
                 <div style="display: flex; justify-content: right; align-items: center;">
