@@ -35,7 +35,7 @@ import { type Project } from '../helper';
         display: flex;
         flex-direction: column;
         width: 18rem;
-        border-radius: 1rem;
+        border-radius: 0.5rem;
         transition: all 0.3s;
         border: solid 2px var(--black);
     }
@@ -97,8 +97,8 @@ import { type Project } from '../helper';
     }
 
     .box-shadow::after {
-        border-top-left-radius: 0.85rem;
-        border-top-right-radius: 0.85rem;
+        border-top-left-radius: 0.4rem;
+        border-top-right-radius: 0.4rem;
         box-shadow: inset 0 0 6px #000000;
         bottom: 0;
         content: "";
@@ -112,8 +112,8 @@ import { type Project } from '../helper';
     }
 
     .box-shadow img {
-        border-top-left-radius: 0.85rem;
-        border-top-right-radius: 0.85rem;
+        border-top-left-radius: 0.4rem;
+        border-top-right-radius: 0.4rem;
         max-width: 100%;
         width: auto;
         height: 100%;
