@@ -10,7 +10,10 @@ import FadeInContainer from './FadeInContainer.vue';
             <div class="content-div">
                 <div>
                     <h1>Matteo Giannone</h1>
-                    <h2>Software Engineer</h2>
+                    <h2 style="color: var(--dark-green);">Software Developer</h2>
+                    <p>I'm a future 2024 University of Toronto graduate majoring in Computer Science and Applied Statistics. Over the course of my university career, I have worked on projects in many different fields of computer science. These include: Machine Learning, Artificial Intelligence, Fullstack Web Development, and Computer Security.</p>
+                    <p>I am passionate about learning and creating new things. Recently, I've been interested in developing web apps and creating games with the open-source Godot game engine. Below are links to some of the projects I have worked on.</p>
+                    <p>I am interested in any opportunities to broaden and refine my development skills and creating amazing products!</p>
                 </div>
                 <div class="link-div">
                     <a href="https://www.linkedin.com/in/matteo-giannone/" target="_blank" class="link-icon">
@@ -57,13 +60,11 @@ import FadeInContainer from './FadeInContainer.vue';
 
     .link-div {
         display: flex;
-        justify-content: right;
-        padding-bottom: 20px;
-        padding-right: 100px;
+        justify-content: left;
     }
 
     .link-icon {
-        margin-left: 0.5rem;
+        margin-right: 0.5rem;
         text-decoration: none;
         color: var(--light-green);
         transition: all 0.2s;
@@ -86,7 +87,6 @@ import FadeInContainer from './FadeInContainer.vue';
     h1 {
         font-size: 3rem;
         margin: 0;
-        margin-top: 0.5rem;
         font-weight: 200;
         color: var(--light-green);
     }
@@ -94,9 +94,13 @@ import FadeInContainer from './FadeInContainer.vue';
     h2 {
         font-size: 2rem;
         margin: 0;
-        margin-top: 0.5rem;
         font-weight: 200;
         color: var(--white);
+    }
+
+    p {
+        line-height: 1.5rem;
+        margin: 1rem 0;
     }
 
     @media screen and (max-width: 900px) {
