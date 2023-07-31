@@ -192,7 +192,7 @@ onUnmounted(() => {
             </SpeedInContainer>
             <SpeedInContainer v-else>
                 <div style="display: flex; justify-content: right; align-items: center;">
-                    <a class="nav-btn" href="#">RESUME</a>
+                    <a class="nav-btn" target="_blank" :href="resume">RESUME</a>
                     <div class="menu-btn" @click="toggleSidebar">
                         <div class="menu-bar"></div>
                         <div class="menu-bar"></div>
