@@ -66,6 +66,12 @@ import profilePhoto from '../assets/profile-photo.jpg';
         flex: 60%;
         padding: 0 1rem;
         overflow-y: scroll;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+    }
+
+    .content-div::-webkit-scrollbar { 
+        display: none;  /* Safari and Chrome */
     }
 
     .link-div {
